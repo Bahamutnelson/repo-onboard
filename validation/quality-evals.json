@@ -1,0 +1,52 @@
+{
+  "skill_name": "repo-onboard",
+  "evals": [
+    {
+      "id": 0,
+      "name": "clear-readme-todo-api",
+      "prompt": "I just cloned this repo into the current directory and I honestly have no idea what it is. Can you get me up to speed on what it does, and then tell me what you could help me with?",
+      "expected_output": "Recon of the repo; deduced purpose = an Express REST API for managing todo lists; writes .claude/notes/repo-onboard.md; asks the user to confirm the purpose; then asks what they want done. Does NOT start coding.",
+      "fixture": "todo-api",
+      "assertions": [
+        "Deduces the repo is an Express REST API for managing todo lists",
+        "Anchors the deduction to concrete evidence (express dep / src/server.js routes / README)",
+        "Writes the deduced understanding to .claude/notes/repo-onboard.md",
+        "Explicitly asks the user to confirm or correct the deduced purpose",
+        "Asks the user what they would like done next instead of assuming a task",
+        "Does not start modifying code or begin a task before the user chooses"
+      ]
+    },
+    {
+      "id": 1,
+      "name": "no-readme-infer-cli",
+      "prompt": "what does this project actually do? walk me through it and let me know where i should start",
+      "expected_output": "There is no README, so purpose must be inferred from setup.py console_scripts + cli.py: a Python CLI that converts CSV files to JSON. Writes the note, confirms purpose with user, asks what to do. Should not hallucinate a purpose beyond the evidence.",
+      "fixture": "csv2json",
+      "assertions": [
+        "Infers, with no README present, that it is a command-line tool converting CSV files to JSON",
+        "Grounds the inference in the entry point (setup.py console_scripts csv2json / cli.py argparse)",
+        "Does not invent functionality beyond what the code shows (no hallucinated features)",
+        "Writes the deduced understanding to .claude/notes/repo-onboard.md",
+        "Explicitly asks the user to confirm or correct the deduced purpose",
+        "Asks the user what they would like done next instead of assuming a task",
+        "Does not start modifying code or begin a task before the user chooses"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "readme-contradicts-code",
+      "prompt": "onboard me to this codebase please",
+      "expected_output": "README claims it's a real-time analytics dashboard, but package.json (main/module/types/files=dist, peerDeps react, no start script, publishConfig) + src exporting Button/Card/Chart show it's a publishable React component library. The skill should surface this contradiction rather than parroting the README, confirm with the user, and ask what they want.",
+      "fixture": "velocity-ui",
+      "assertions": [
+        "Concludes the repo is a publishable React UI component library, not a running dashboard/app",
+        "Explicitly flags the README (claims real-time analytics dashboard) vs code (dist build, react peerDeps, exports Button/Card/Chart, no app entry) contradiction",
+        "Does not blindly parrot the README's dashboard description as the truth",
+        "Writes the deduced understanding to .claude/notes/repo-onboard.md",
+        "Explicitly asks the user to confirm or correct the deduced purpose",
+        "Asks the user what they would like done next instead of assuming a task",
+        "Does not start modifying code or begin a task before the user chooses"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+[
+  {"query": "just cloned this repo and i have no idea what it is — can you figure out what it does and tell me what you could help me with?", "should_trigger": true},
+  {"query": "explain what this regex does, i can't parse it: ^(?:[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,})$", "should_trigger": false},
+
+  {"query": "j'ai hérité de ce repo d'un dev parti sans laisser de doc, aide-moi à comprendre ce que c'est avant que je touche quoi que ce soit", "should_trigger": true},
+  {"query": "ajoute un bouton d'export CSV sur la page rapports dans src/pages/Reports.tsx", "should_trigger": false},
+
+  {"query": "acabo de clonar este repositorio y no tengo ni idea de qué hace, ¿puedes explorarlo y decirme en qué podrías ayudarme?", "should_trigger": true},
+  {"query": "¿qué significa este error? TypeError: cannot read properties of undefined (reading 'map') en checkout.js:88", "should_trigger": false},
+
+  {"query": "assumi a manutenção deste serviço e ninguém me explicou nada; me dá um resumo do que é, qual a stack e em que estado está", "should_trigger": true},
+  {"query": "escreve um README decente para este projeto, ele ainda não tem nenhum", "should_trigger": false},
+
+  {"query": "ich habe diesen Ordner im Editor geöffnet und sehe nur eine Wand aus fremdem Code — was ist das überhaupt für ein Repo?", "should_trigger": true},
+  {"query": "ich muss next.js in diesem Repo von 13 auf 14 anheben — was wird dabei wahrscheinlich kaputtgehen?", "should_trigger": false},
+
+  {"query": "bu projeye yeni başladım, sıfırdan başlıyorum; beni bu kod tabanına bir alıştır bakalım", "should_trigger": true},
+  {"query": "React'te useEffect cleanup fonksiyonu tam olarak nasıl çalışıyor? zamanlamasını anlamaya çalışıyorum", "should_trigger": false},
+
+  {"query": "мне передали этот сервис без какого-либо брифинга — опиши, что это, какой стек и в каком оно состоянии", "should_trigger": true},
+  {"query": "проведи меня по тому, как именно работает поток авторизации в этом приложении — сам проект я уже знаю, нужен только этот модуль", "should_trigger": false},
+
+  {"query": "новий репозиторій, нуль контексту — введи мене в курс справи, що це взагалі таке, перш ніж ми щось робитимемо", "should_trigger": true},
+  {"query": "перейменуй змінну cfg на config у файлі src/utils/load.ts", "should_trigger": false},
+
+  {"query": "jag klonade precis det här repot och har ingen aning om vad det gör — kan du kolla runt och berätta vad det är och vad du kan hjälpa till med?", "should_trigger": true},
+  {"query": "kan du optimera den här SQL-frågan? den är jättelångsam", "should_trigger": false},
+
+  {"query": "perin tämän projektin eikä kukaan perehdyttänyt minua — kerro mikä tämä on, mikä teknologiapino ja missä kunnossa se on", "should_trigger": true},
+  {"query": "lisää yksikkötesti funktiolle parseAmount tiedostoon src/money.ts", "should_trigger": false},
+
+  {"query": "akkurat klonet dette repoet og aner ikke hva det er — kan du finne ut hva det gjør og si hva du kan hjelpe meg med?", "should_trigger": true},
+  {"query": "hva betyr denne feilmeldingen når jeg starter appen? ECONNREFUSED 127.0.0.1:5432", "should_trigger": false},
+
+  {"query": "我刚 clone 了这个仓库，完全不知道它是干什么的，你能看一下它的作用，然后告诉我你能帮我做些什么吗？", "should_trigger": true},
+  {"query": "帮我解释一下这个函数是做什么的：function debounce(fn, ms){ let t; return (...a)=>{ clearTimeout(t); t=setTimeout(()=>fn(...a), ms); }; }", "should_trigger": false},
+
+  {"query": "このリポジトリをクローンしたばかりで、何のプロジェクトなのか全然わかりません。何をするものか調べて、手伝えることを教えてもらえますか？", "should_trigger": true},
+  {"query": "この正規表現が何をしているのか説明してください: ^\\d{4}-\\d{2}-\\d{2}$", "should_trigger": false},
+
+  {"query": "입사 첫날인데 이 모노레포를 던져주고 '알아서 파악하라'네요. 이 코드베이스가 뭔지 쭉 설명해 주세요", "should_trigger": true},
+  {"query": "결제 재시도 로직을 리팩터링한 PR인데, 머지하기 전에 한번 리뷰해 줄 수 있나요?", "should_trigger": false},
+
+  {"query": "فتحت هذا المستودع غير المألوف وكل ما أراه كومة من الشيفرة — ما هذا المشروع وما الذي يفعله ومن أين أبدأ؟", "should_trigger": true},
+  {"query": "ما معنى رسالة الخطأ هذه عند تشغيل التطبيق؟ ECONNREFUSED 127.0.0.1:5432", "should_trigger": false},
+
+  {"query": "मैं इस कोडबेस में बिल्कुल नया हूँ — बताओ यह क्या है, इसका स्टैक क्या है और मुझे कहाँ से शुरू करना चाहिए?", "should_trigger": true},
+  {"query": "इस फ़ंक्शन को समझाओ: function debounce(fn, ms){ let t; return (...a)=>{ clearTimeout(t); t=setTimeout(()=>fn(...a), ms); }; }", "should_trigger": false}
+]
