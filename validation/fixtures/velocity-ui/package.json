@@ -1,0 +1,28 @@
+{
+  "name": "@velocity/ui",
+  "version": "2.3.1",
+  "description": "Velocity UI components",
+  "main": "dist/velocity-ui.cjs.js",
+  "module": "dist/velocity-ui.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "rollup -c",
+    "prepublishOnly": "npm run build",
+    "test": "jest"
+  },
+  "peerDependencies": {
+    "react": ">=17",
+    "react-dom": ">=17"
+  },
+  "devDependencies": {
+    "react": "^18.2.0",
+    "rollup": "^4.9.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

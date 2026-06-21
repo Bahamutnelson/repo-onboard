@@ -20,7 +20,9 @@ if command -v git >/dev/null 2>&1 && git rev-parse --is-inside-work-tree >/dev/n
   echo "branch: $(git rev-parse --abbrev-ref HEAD 2>/dev/null)"
   echo "remote: $(git remote get-url origin 2>/dev/null || echo '(none)')"
   echo "last commit: $(git log -1 --pretty='%h %ad %s' --date=short 2>/dev/null || echo '(no commits)')"
-  echo "commits: $(git rev-list --count HEAD 2>/dev/null || echo '?')   contributors: $(git shortlog -sn 2>/dev/null | wc -l | tr -d ' ')"
+  # NB: `git shortlog` reads commits from stdin unless given a revision; in a
+  # non-interactive script that means an empty stdin -> 0. Pass HEAD explicitly.
+  echo "commits: $(git rev-list --count HEAD 2>/dev/null || echo '?')   contributors: $(git shortlog -sn HEAD 2>/dev/null | wc -l | tr -d ' ')"
 else
   echo "(not a git repository)"
 fi

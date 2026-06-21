@@ -5,8 +5,9 @@ This skill was validated on two axes: **what it does once invoked** (quality) an
 
 ## 1. Behaviour quality
 
-Three fixture repos with known ground truth, each run with and without the skill
-(subagents, graded on objective assertions):
+Three fixture repos with known ground truth (committed under
+`validation/fixtures/`), each run with and without the skill (subagents, graded on
+objective assertions):
 
 - `todo-api` — README present, fully consistent (Express REST API for todos)
 - `csv2json` — **no README**, purpose only inferable from `setup.py` + `cli.py`
@@ -17,7 +18,8 @@ Result: **100% of assertions passed with the skill vs ~75% without.** The skill'
 marginal value concentrated in (a) writing the persistent note (baseline never did)
 and (b) explicitly asking the user to confirm the deduced purpose before proceeding.
 
-See `validation/quality-evals.json` for the prompts and assertions.
+See `validation/quality-evals.json` for the prompts and assertions, and
+`validation/fixtures/README.md` for the fixtures and how to re-run a case.
 
 ## 2. Language-universal triggering
 
@@ -62,10 +64,15 @@ the tail is routing-neutral.
 
 ### Reproduce
 
+Trigger axis (automated, `claude` CLI on PATH):
+
 ```bash
-# needs the `claude` CLI on PATH
 python3 validation/judge_router.py    --desc-file <(sed -n '/^description:/,/^---/p' SKILL.md) --label current --runs 3
 python3 validation/judge_negatives.py --desc-file <(sed -n '/^description:/,/^---/p' SKILL.md) --runs 7
 ```
 
 (Or point `--desc-file` at a plain-text file containing just the description.)
+
+Quality axis (manual, subagent-graded): see `validation/fixtures/README.md` —
+run each `quality-evals.json` prompt in its fixture directory, with and without
+the skill, and score against that case's assertions.
