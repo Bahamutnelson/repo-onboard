@@ -54,6 +54,12 @@ variable, optimize a query, trace one subsystem).
 For an onboarding skill a false trigger is cheap (it orients and asks) while a false
 negative is expensive (working blind), so this boundary was judged acceptable.
 
+**Shipped description re-confirmed.** The triggering core was validated on its own;
+the description as actually shipped also appends a short behavioral tail (what the
+skill does once invoked). Re-running the same router-judge on the shipped description
+gave an unchanged profile — should-fire 16/16 at 100%, same negative behavior — so
+the tail is routing-neutral.
+
 ### Reproduce
 
 ```bash
